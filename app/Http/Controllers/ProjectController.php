@@ -12,7 +12,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $project = Project::find(2);
+        //dd($project);
+        $user = $project->user;
+        return view('project.index', compact('user'));
     }
 
     /**

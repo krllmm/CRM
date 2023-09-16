@@ -16,11 +16,14 @@ return new class extends Migration
 
             $table->string('title');
             $table->string('description');
-            $table->date('deadline')->useCurrent()->addDays(30);
+            $table->date('deadline')->default('2030-01-01');
             $table->string('status')->default('to-do');
 
-            $table->integer("projectable_id");
-            $table->string("projectable_type");
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients');
 
             $table->timestamps();
 
