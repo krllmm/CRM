@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="{{ asset('css/main/dashboard.css') }}" rel="stylesheet">
-    <title>Document</title>
+    <title>CRM - Dashboard</title>
 </head>
 <body>
 
@@ -51,7 +51,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M3 14c0-4.968 4.03-9 9-9s9 4.032 9 9c0 1.053-.33 2.38-.929 3.42-.607 1.054-1.333 1.57-2.052 1.58-.484-.024-.84-.233-1.504-.62-.144-.084-.302-.176-.478-.276C15.087 17.564 13.87 17 12 17s-3.087.563-4.037 1.104c-.176.1-.334.192-.478.276-.664.387-1.02.596-1.504.62-.72-.01-1.445-.526-2.052-1.58C3.33 16.38 3 15.053 3 14zm9-11C5.925 3 1 7.928 1 14c0 1.398.42 3.07 1.196 4.418C2.959 19.743 4.225 21 6 21h.04c1.041-.042 1.896-.553 2.572-.958.119-.07.232-.139.34-.2C9.728 19.401 10.599 19 12 19s2.272.4 3.048.842c.108.061.22.13.34.2.676.404 1.53.916 2.572.957l.02.001H18c1.775 0 3.041-1.257 3.804-2.582C22.58 17.071 23 15.398 23 14c0-6.072-4.925-11-11-11zm4.95 7.464a1 1 0 1 0-1.414-1.414l-3.018 3.018a2 2 0 1 0 1.414 1.414l3.018-3.018zM5 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm15-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-8-6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="#fff"/>
                     </svg>
                 </div>
-                <a href="#" class="side-menu-link">Dashboard</a>
+                <a href="{{ redirect('/dashboard') }}" class="side-menu-link">Dashboard</a>
             </div>
             <div class="side_menu_item">
                 <div class="side_menu_item_icon">
@@ -59,7 +59,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M16 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm-5 3a5 5 0 1 1 8.654 3.413 8.095 8.095 0 0 1 4.172 3.12 1 1 0 0 1-1.652 1.126C21.198 15.227 19.418 14 17 14c-3.834 0-6 3.074-6 5a1 1 0 1 1-2 0c0-.692.158-1.43.46-2.157a1.003 1.003 0 0 1-.211-.183C8.428 15.726 7.154 15 5.5 15s-2.928.726-3.749 1.66A1 1 0 0 1 .25 15.34a6.872 6.872 0 0 1 2.108-1.62 4.5 4.5 0 1 1 6.286 0 6.871 6.871 0 0 1 1.865 1.358 8.1 8.1 0 0 1 2.484-2.083A4.992 4.992 0 0 1 11 9zm-8 1.5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0z" fill="#fff"/>
                     </svg>
                 </div>
-                <a href="#" class="side-menu-link">Users</a>
+                <a href="{{ route('user.index') }}" class="side-menu-link">Users</a>
             </div>
             <div class="side_menu_item">
                 <div class="side_menu_item_icon">
@@ -67,7 +67,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H3zM0 6a3 3 0 0 1 3-3h18a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V6zm6 4.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm4.176 2.257a3.5 3.5 0 1 0-5.351 0C3.681 13.498 3 14.707 3 16a1 1 0 1 0 2 0c0-.886.8-2 2.5-2s2.5 1.114 2.5 2a1 1 0 1 0 2 0c0-1.293-.682-2.5-1.824-3.243zM13 8a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6zm1 4a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4z" fill="#fff"/>
                     </svg>
                 </div>
-                <a href="#" class="side-menu-link">Clients</a>
+                <a href="{{ route('client.index') }}" class="side-menu-link">Clients</a>
             </div>
             <div class="side_menu_item">
                 <div class="side_menu_item_icon">
@@ -75,7 +75,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.293 1.293A1 1 0 0 1 10 1h8a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a1 1 0 0 1 .293-.707l6-6zM18 3h-7v5a1 1 0 0 1-1 1H5v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM6.414 7H9V4.414L6.414 7z" fill="#fff"/>
                     </svg>
                 </div>
-                <a href="#" class="side-menu-link">Projects</a>
+                <a href="{{ route('project.index') }}" class="side-menu-link">Projects</a>
             </div>
             <div class="side_menu_item">
                 <div class="side_menu_item_icon">
@@ -83,7 +83,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 7a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0zM9 6a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H9zm0 5a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H9zm0 5a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H9zm-4-2.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5zm0 5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z" fill="#fff"/>
                     </svg>
                 </div>
-                <a href="#" class="side-menu-link">Tasks</a>
+                <a href="{{ route('task.index') }}" class="side-menu-link">Tasks</a>
             </div>
             <div class="side_menu_item">
                 <div class="side_menu_item_icon">
