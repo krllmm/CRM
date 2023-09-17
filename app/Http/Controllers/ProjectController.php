@@ -12,10 +12,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $project = Project::find(2);
-        //dd($project);
-        $user = $project->user;
-        return view('project.index', compact('user'));
+        $projects = Project::all();
+        return view('project.index', compact('projects'));
     }
 
     /**
@@ -23,7 +21,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('project.create');
     }
 
     /**
@@ -31,38 +29,45 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+
+        ]);
+
+        Project::create($data);
+        return redirect()->route('project.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Project $project)
     {
-        //
+
+        return view('project.show', compact('project'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+        return view('project.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+
+        return redirect()->route('project.show', $project->id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        return redirect()->route('project.index');
     }
 }
