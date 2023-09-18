@@ -5,6 +5,11 @@
 
     @foreach ($clients as $client)
         <div> {{ $client->name }} </div>
+
+        <div>
+            <a href="{{ route('client.show', $client->id) }}">Details</a>
+        </div>
+
         <div>
             <a href="{{ route('client.edit', $client->id) }}">Edit</a>
         </div>

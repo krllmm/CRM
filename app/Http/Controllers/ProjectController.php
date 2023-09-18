@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\User;
+use App\Models\Client;
 
 class ProjectController extends Controller
 {
@@ -21,7 +23,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project.create');
+        $users = User::all();
+        $clients = Client::all();
+        return view('project.create', compact('users', 'clients'));
     }
 
     /**
@@ -30,8 +34,15 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-
+            'title' => 'string',
+            'description' => 'string',
+            'deadline' => 'date',
+            'status' => '',
+            'user_id' => '',
+            'client_id' => '',
         ]);
+
+        //dd($data);
 
         Project::create($data);
         return redirect()->route('project.index');
@@ -42,7 +53,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-
         return view('project.show', compact('project'));
     }
 
@@ -51,7 +61,15 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('project.edit', compact('project'));
+        $statuses = [
+            'To-do',
+            'In progress',
+            'Done',
+            'Delayed'
+        ];
+        $users = User::all();
+        $clients = Client::all();
+        return view('project.edit', compact('project', 'statuses', 'users', 'clients'));
     }
 
     /**
@@ -59,7 +77,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-
+        $data = request()->validate([
+            'title' => 'string',
+            'description' => 'string',
+            'deadline' => 'date',
+            'status' => '',
+            'user_id' => '',
+            'client_id' => '',
+        ]);
+        $project->update($data);
         return redirect()->route('project.show', $project->id);
     }
 
@@ -68,6 +94,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        $project->delete();
         return redirect()->route('project.index');
     }
 }

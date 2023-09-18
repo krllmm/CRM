@@ -30,7 +30,9 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-
+            'title' => 'string',
+            'description' => 'string',
+            'status' => '',
         ]);
 
         Task::create($data);
@@ -48,9 +50,15 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Task $task)
     {
-        //
+        $statuses = [
+            'To-do',
+            'In progress',
+            'Done',
+            'Delayed'
+        ];
+        return view('task.edit', compact('task', 'statuses'));
     }
 
     /**
@@ -58,6 +66,13 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
+        $data = request()->validate([
+            'title' => 'string',
+            'description' => 'string',
+            'status' => '',
+        ]);
+
+        $task->update($data);
         return redirect()->route('task.show', $task->id);
     }
 
@@ -66,6 +81,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
+        $task->delete();
         return redirect()->route('task.index');
     }
 }

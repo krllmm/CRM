@@ -1,12 +1,23 @@
 @extends('layouts.main')
 @section('content')
 
-    @foreach ($projects as $project)
+<a href="{{ route('project.create') }}">New Project</a>
 
-        <div>
-            {{ $project->title }}
-        </div>
+@foreach ($projects as $project)
+    <div> {{ $project->title }} </div>
 
-    @endforeach
+    <div>
+        <a href="{{ route('project.show', $project->id) }}">Details</a>
+    </div>
+
+    <div>
+        <a href="{{ route('project.edit', $project->id) }}">Edit</a>
+    </div>
+    <form action="{{ route('project.destroy', $project->id) }}" method="post">
+        @csrf
+        @method('delete')
+        <button type="submit">Delete</button>
+    </form>
+@endforeach
 
 @endsection
