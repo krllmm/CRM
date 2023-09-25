@@ -86,7 +86,7 @@ class ProjectController extends Controller
             'client_id' => '',
         ]);
         $project->update($data);
-        return redirect()->route('project.show', $project->id);
+        return redirect()->route('project.index');
     }
 
     /**

@@ -30,7 +30,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = request()->validate([
-
+            'name' => 'required|string',
+            'email' => 'required|email',
         ]);
 
         User::create($data);
@@ -42,7 +43,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        //no user details page
     }
 
     /**
