@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="shortcut icon" sizes="114x114" href="{{ asset('images/tabs.png') }}">
+
     <link href="{{ asset('css/main/dashboard.css') }}" rel="stylesheet">
     <title>CRM - @yield('title')</title>
 </head>
