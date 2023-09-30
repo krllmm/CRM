@@ -14,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::inProgress()->get();
         return view('project.index', compact('projects'));
     }
 
