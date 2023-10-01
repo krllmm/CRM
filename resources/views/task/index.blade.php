@@ -32,7 +32,7 @@
                     </a>
                 </td>
                 <td>{{ $task->description }}</td>
-                <td>{{ $task->created_at }}</td>
+                <td>{{ $task->created_at->format('Y-m-d') }}</td>
                 <td>{{ $task->status }}</td>
             </tr>
             @endforeach
