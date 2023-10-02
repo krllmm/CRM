@@ -37,10 +37,10 @@ Edit project
 
     <div class="row">
       <div class="input-group">
-          <select type="text" name="user_id" placeholder="User">
-              @foreach ($users as $user)
-                <option {{ $user->name === $project->user->name ? ' selected' : '' }}
-                value="{{ $user->id }}">{{ $user->name }}</option>
+          <select type="text" name="worker_id" placeholder="Worker">
+              @foreach ($workers as $worker)
+                <option {{ $worker->name == $project->worker->name ? ' selected' : '' }}
+                            value="{{ $worker->id }}">{{ $worker->name }}</option>
               @endforeach
           </select>
       </div>

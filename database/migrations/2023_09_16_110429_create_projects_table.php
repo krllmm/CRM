@@ -19,8 +19,8 @@ return new class extends Migration
             $table->date('deadline')->default('2030-01-01');
             $table->string('status')->default('to-do');
 
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('worker_id')->unsigned();
+            $table->foreign('worker_id')->references('id')->on('workers');
 
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients');

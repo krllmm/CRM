@@ -14,6 +14,7 @@ class DashboardController extends Controller
         $projects = Project::InProgress()->get();
         $clients = Client::Recent()->get();
         $tasks = Task::InProgress()->get();
+
         return view('dashboard.dashboard', compact('projects', 'clients', 'tasks'));
     }
 }

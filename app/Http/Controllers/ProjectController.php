@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
-use App\Models\User;
+use App\Models\Worker;
 use App\Models\Client;
 
 class ProjectController extends Controller
@@ -23,9 +23,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $workers = Worker::all();
         $clients = Client::all();
-        return view('project.create', compact('users', 'clients'));
+        return view('project.create', compact('workers', 'clients'));
     }
 
     /**
@@ -38,11 +38,9 @@ class ProjectController extends Controller
             'description' => 'string',
             'deadline' => 'date',
             'status' => '',
-            'user_id' => '',
+            'worker_id' => '',
             'client_id' => '',
         ]);
-
-        //dd($data);
 
         Project::create($data);
         return redirect()->route('project.index');
@@ -53,7 +51,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('project.show', compact('project'));
+        //
     }
 
     /**
@@ -67,9 +65,9 @@ class ProjectController extends Controller
             'Done',
             'Delayed'
         ];
-        $users = User::all();
+        $workers = Worker::all();
         $clients = Client::all();
-        return view('project.edit', compact('project', 'statuses', 'users', 'clients'));
+        return view('project.edit', compact('project', 'statuses', 'workers', 'clients'));
     }
 
     /**
@@ -82,7 +80,7 @@ class ProjectController extends Controller
             'description' => 'string',
             'deadline' => 'date',
             'status' => '',
-            'user_id' => '',
+            'worker_id' => '',
             'client_id' => '',
         ]);
         $project->update($data);

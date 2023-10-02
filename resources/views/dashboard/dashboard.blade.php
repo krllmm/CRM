@@ -20,7 +20,7 @@
                 <th class="column1">Title</th>
                 <th class="column2">Description</th>
                 <th class="column3">Deadline</th>
-                <th class="column4">User</th>
+                <th class="column4">Worker</th>
                 <th class="column5">Client</th>
                 <th class="column6">Status</th>
             </tr>
@@ -30,7 +30,7 @@
             @foreach($projects as $project)
             <tr>
                 <td>
-                    <a href="{{ route('project.show', $project->id) }}">{{ $project->title }}</a>
+                    {{ $project->title }}
                     <a href="{{ route('project.edit', $project->id) }}">
                         <svg id="edit_icon" width="14" height="14" viewBox="0 0 24 24">
                             <path d="M 19.171875 2 C 18.448125 2 17.724375 2.275625 17.171875 2.828125 L 16 4 L 20 8 L 21.171875 6.828125 C 22.275875 5.724125 22.275875 3.933125 21.171875 2.828125 C 20.619375 2.275625 19.895625 2 19.171875 2 z M 14.5 5.5 L 3 17 L 3 21 L 7 21 L 18.5 9.5 L 14.5 5.5 z"></path>
@@ -39,7 +39,7 @@
                 </td>
                 <td>{{ $project->description }}</td>
                 <td>{{ $project->deadline }}</td>
-                <td>{{ $project->user->name }}</td>
+                <td>{{ $project->worker->name }}</td>
                 <td>{{ $project->client->name }}</td>
                 <td>{{ $project->status }}</td>
             </tr>
@@ -69,7 +69,7 @@
             @foreach($clients as $client)
             <tr>
                 <td>
-                    <a href="{{ route('project.show', $client->id) }}">{{ $client->name }}</a>
+                    {{ $client->name }}
                     <a href="{{ route('project.edit', $client->id) }}">
                         <svg id="edit_icon" width="14" height="14" viewBox="0 0 24 24">
                             <path d="M 19.171875 2 C 18.448125 2 17.724375 2.275625 17.171875 2.828125 L 16 4 L 20 8 L 21.171875 6.828125 C 22.275875 5.724125 22.275875 3.933125 21.171875 2.828125 C 20.619375 2.275625 19.895625 2 19.171875 2 z M 14.5 5.5 L 3 17 L 3 21 L 7 21 L 18.5 9.5 L 14.5 5.5 z"></path>
@@ -104,7 +104,7 @@
             @foreach($tasks as $task)
             <tr>
                 <td>
-                    <a href="{{ route('task.show', $task->id) }}">{{ $task->title }}</a>
+                    {{ $task->title }}
                     <a href="{{ route('task.edit', $task->id) }}">
                         <svg id="edit_icon" width="14" height="14" viewBox="0 0 24 24">
                             <path d="M 19.171875 2 C 18.448125 2 17.724375 2.275625 17.171875 2.828125 L 16 4 L 20 8 L 21.171875 6.828125 C 22.275875 5.724125 22.275875 3.933125 21.171875 2.828125 C 20.619375 2.275625 19.895625 2 19.171875 2 z M 14.5 5.5 L 3 17 L 3 21 L 7 21 L 18.5 9.5 L 14.5 5.5 z"></path>

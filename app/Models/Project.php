@@ -22,9 +22,9 @@ class Project extends Model
         $query->where('status', 'In progress');
     }
 
-    public function user(): BelongsTo
+    public function worker(): BelongsTo
     {
-        return $this->BelongsTo(User::class);
+        return $this->BelongsTo(Worker::class);
     }
 
     public function client(): BelongsTo
