@@ -37,7 +37,7 @@
 
 
             @if(Auth::check())
-                Logged in
+                {{Auth::user()->name}}
             @else
                 <div class="user_icon">
                     <a href="{{ route('login') }}">
@@ -46,7 +46,7 @@
                         </svg>
                     </a>
                 </div>
-                not logged in
+
             @endif
 
 
@@ -128,7 +128,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h11a1 1 0 1 0 0-2H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h11a1 1 0 1 0 0-2H6zm9.707 4.293a1 1 0 1 0-1.414 1.414L16.586 11H8a1 1 0 1 0 0 2h8.586l-2.293 2.293a1 1 0 0 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4z" fill="#fff"/>
                     </svg>
                 </div>
-                <a href="#" class="side-menu-link">Logout</a>
+                <a href="{{ route('logout') }}" class="side-menu-link">Logout</a>
             </div>
         </div>
 

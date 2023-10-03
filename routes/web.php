@@ -10,8 +10,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::view('/settings', 'settings')->name('settings');
 
-//Auth::routes();
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('project', ProjectController::class);
@@ -23,3 +21,4 @@ Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/create_account', [UserController::class, 'create'])->name('create_account');
 Route::get('/sign_in', [UserController::class, 'sign_in'])->name('sign_in');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');

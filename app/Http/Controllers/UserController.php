@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 class UserController extends Controller
 {
     public function index()
@@ -33,16 +35,23 @@ class UserController extends Controller
     public function sign_in(Request $request)
     {
         $data = request()->validate([
-            'name' => 'string',
+            'name' => '',
             'password' => 'string',
         ]);
 
-        $user = User::where('name', 'admin');
-
-        if (Auth::login($user)) {
+        if (Auth::attempt([
+            'name' => $request->get('name'),
+            'password' => $request->get('password'),
+        ])){
             return redirect()->route('project.index');
         }
 
+        return redirect()->route('dashboard');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
         return redirect()->route('dashboard');
     }
 }
