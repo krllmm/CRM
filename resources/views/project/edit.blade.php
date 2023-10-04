@@ -1,66 +1,58 @@
+<link rel="stylesheet" href="{{ asset('css/project/style.css') }}">
 @extends('layouts.main')
+
+@section('title')
+    Project - edit {{$project->title}}
+@endsection
+
 @section('content')
 
-Edit project
+<h1 class="header">Edit project</h1>
 
-<form action="{{ route('project.update', $project->id) }}" method="POST">
-    @csrf
-    @method('patch')
-    <div class="row">
-        <div class="input-group">
-            <input type="text" name="title" placeholder="Title" value="{{ $project->title }}">
-        </div>
-    </div>
+<div class="form_container">
 
-    <div class="row">
-        <div class="input-group">
-            <input type="text" name="description" placeholder="Description" value="{{ $project->description }}">
-        </div>
-    </div>
+    <form action="{{ route('project.update', $project->id) }}" method="POST">
+        @csrf
+        @method('patch')
 
-    <div class="row">
-      <div class="input-group">
-          <input type="date" name="deadline" placeholder="Deadline" value="{{ $project->deadline }}">
-      </div>
-  </div>
+        <label for="title">Project title</label>
+        <input name="title" type="text" autocomplete="off" placeholder="Enter project`s title" value="{{ $project->title }}">
 
-    <div class="row">
-        <div class="input-group">
-            <select type="text" name="status" placeholder="Status">
-                @foreach ($statuses as $status)
-                    <option {{ $status === $project->status ? ' selected' : '' }}
-                                        value="{{ $status }}">{{ $status }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
+        <label for="description">Description</label>
+        <input name="description" type="text" autocomplete="off" placeholder="Enter project`s description here" value="{{ $project->description }}">
 
-    <div class="row">
-      <div class="input-group">
-          <select type="text" name="worker_id" placeholder="Worker">
-              @foreach ($workers as $worker)
+        <label for="deadline">Deadline</label>
+        <input name="deadline" type="date" autocomplete="off" value="{{ $project->deadline }}">
+
+        <label for="status">Status</label>
+        <select type="text" name="status" placeholder="Status">
+            @foreach ($statuses as $status)
+                <option {{ $status === $project->status ? ' selected' : '' }}
+                           value="{{ $status }}">{{ $status }}</option>
+            @endforeach
+        </select>
+
+        <label for="worker">Worker</label>
+        <select type="text" name="worker" placeholder="Choose a worker">
+            @foreach ($workers as $worker)
                 <option {{ $worker->name == $project->worker->name ? ' selected' : '' }}
-                            value="{{ $worker->id }}">{{ $worker->name }}</option>
-              @endforeach
-          </select>
-      </div>
-  </div>
+                           value="{{ $worker->id }}">{{ $worker->name }}</option>
+            @endforeach
+        </select>
 
-  <div class="row">
-      <div class="input-group">
-          <select type="text" name="client_id" placeholder="Client">
-              @foreach ($clients as $client)
-              <option {{ $client->name === $project->client->name ? ' selected' : '' }}
-                value="{{ $client->id }}">{{ $client->name }}</option>
-              @endforeach
-          </select>
-      </div>
-  </div>
+        <label for="client">Client</label>
+        <select type="text" name="client" placeholder="Choose a client">
+            @foreach ($clients as $client)
+                <option {{ $client->name === $project->client->name ? ' selected' : '' }}
+                            value="{{ $client->id }}">{{ $client->name }}</option>
+            @endforeach
+        </select>
 
-    <div>
-        <button type="submit">Update project</button>
-    </div>
-  </form>
+        <div>
+            <button type="submit"><span>Update</span></button>
+        </div>
+    </form>
 
+</div>
 
 @endsection

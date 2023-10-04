@@ -1,26 +1,29 @@
+<link rel="stylesheet" href="{{ asset('css/worker/style.css') }}">
 @extends('layouts.main')
+
+@section('title')
+    Workers - create
+@endsection
+
 @section('content')
 
-  Add worker to database
+<h1 class="header">Create worker</h1>
 
-  <form action="{{ route('worker.store') }}" method="POST">
-    @csrf
-    <div class="row">
-        <div class="input-group">
-            <input type="text" name="name" placeholder="Name">
+<div class="form_container">
+
+    <form action="{{ route('worker.store') }}" method="POST">
+        @csrf
+        <label for="name">Worker`s name</label>
+        <input name="name" type="text" autocomplete="off" placeholder="Enter worker`s name">
+
+        <label for="email">Email</label>
+        <input name="email" type="text" autocomplete="off" placeholder="Worker`s email">
+
+        <div>
+            <button type="submit"><span>Create</span></button>
         </div>
-    </div>
+    </form>
 
-    <div class="row">
-        <div class="input-group">
-            <input type="email" name="email" placeholder="Email">
-        </div>
-    </div>
-
-    <div>
-        <button type="submit">Create</button>
-    </div>
-  </form>
-
+</div>
 
 @endsection

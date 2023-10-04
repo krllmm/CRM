@@ -12,8 +12,6 @@
 </head>
 <body>
 
-
-
 <div class="container">
 
     <div class="row_top">
@@ -29,7 +27,7 @@
             </div>
 
             @if(Auth::check())
-                <span class="admin_name">{{Auth::user()->name}}</span>
+                <p class="admin_name">{{Auth::user()->name}}</p>
             @else
                 <a class="login_button" href="{{ route('login') }}">
                     <div class="user_icon">

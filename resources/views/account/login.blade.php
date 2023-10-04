@@ -10,8 +10,8 @@
             <form action="{{ route('sign_in') }}">
                 @csrf
                 <label>Login</label>
-                <input type="text" name="name" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="name" placeholder="Username" required autocomplete="off">
+                <input type="password" name="password" placeholder="Password" required autocomplete="off">
                 <button type="submit">Login</button>
             </form>
             <div class="new_container">

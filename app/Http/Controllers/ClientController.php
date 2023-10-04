@@ -67,7 +67,7 @@ class ClientController extends Controller
         ]);
 
         $client->update($data);
-        return redirect()->route('client.show', $client->id);
+        return redirect()->route('client.index');
     }
 
     /**

@@ -1,62 +1,54 @@
+<link rel="stylesheet" href="{{ asset('css/project/style.css') }}">
 @extends('layouts.main')
+
+@section('title')
+    Projects - create
+@endsection
+
 @section('content')
 
-Create project
+<h1 class="header">Create project</h1>
+
+<div class="form_container">
 
     <form action="{{ route('project.store') }}" method="POST">
-      @csrf
-      <div class="row">
-          <div class="input-group">
-              <input type="text" name="title" placeholder="Title">
-          </div>
-      </div>
+        @csrf
+        <label for="title">Project title</label>
+        <input name="title" type="text" autocomplete="off" placeholder="Enter project`s title">
 
-      <div class="row">
-          <div class="input-group">
-              <input type="text" name="description" placeholder="Description">
-          </div>
-      </div>
+        <label for="description">Description</label>
+        <input name="description" type="text" autocomplete="off" placeholder="Enter project`s description here">
 
-      <div class="row">
-        <div class="input-group">
-            <input type="date" name="deadline" placeholder="Deadline">
-        </div>
-    </div>
+        <label for="deadline">Deadline</label>
+        <input name="deadline" type="date" autocomplete="off">
 
-      <div class="row">
-          <div class="input-group">
-                <select type="text" name="status" placeholder="Status">
-                    <option>To-do</option>
-                    <option>In progress</option>
-                    <option>Done</option>
-                    <option>Delayed</option>
-                </select>
-          </div>
-      </div>
+        <label for="status">Status</label>
+        <select type="text" name="status" placeholder="Status">
+            <option>To-do</option>
+            <option>In progress</option>
+            <option>Done</option>
+            <option>Delayed</option>
+        </select>
 
-      <div class="row">
-        <div class="input-group">
-            <select type="text" name="worker_id" placeholder="Worker">
-                @foreach ($workers as $worker)
-                    <option value="{{ $worker->id }}">{{ $worker->name }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
+        <label for="worker">Worker</label>
+        <select type="text" name="worker" placeholder="Choose a worker">
+            @foreach ($workers as $worker)
+                <option value="{{ $worker->id }}">{{ $worker->name }}</option>
+            @endforeach
+        </select>
 
-    <div class="row">
-        <div class="input-group">
-            <select type="text" name="client_id" placeholder="Client">
-                @foreach ($clients as $client)
-                    <option value="{{ $client->id }}">{{ $client->name }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
+        <label for="client">Client</label>
+        <select type="text" name="client" placeholder="Choose a client">
+            @foreach ($clients as $client)
+                <option value="{{ $client->id }}">{{ $client->name }}</option>
+            @endforeach
+        </select>
 
       <div>
-          <button type="submit">Create</button>
+          <button type="submit"><span>Create</span></button>
       </div>
     </form>
+
+</div>
 
 @endsection

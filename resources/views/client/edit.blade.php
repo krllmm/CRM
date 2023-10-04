@@ -1,31 +1,33 @@
+<link rel="stylesheet" href="{{ asset('css/client/style.css') }}">
 @extends('layouts.main')
+
+@section('title')
+    Clients - edit {{ $client->name }}
+@endsection
+
 @section('content')
 
-    Edit client`s information
+<h1 class="header">Edit client</h1>
+
+<div class="form_container">
 
     <form action="{{ route('client.update', $client->id) }}" method="POST">
         @csrf
         @method('patch')
-        <div class="row">
-            <div class="input-group">
-                <input type="text" name="name" placeholder="Name" value="{{ $client->name }}">
-            </div>
-        </div>
+        <label for="name">Client`s name</label>
+        <input name="name" type="text" autocomplete="off" placeholder="Enter client`s name" value="{{ $client->name }}">
 
-        <div class="row">
-            <div class="input-group">
-                <input type="text" name="company" placeholder="Company" value="{{ $client->company }}">
-            </div>
-        </div>
+        <label for="company">Company</label>
+        <input name="company" type="text" autocomplete="off" placeholder="Company they are working in" value="{{ $client->company }}">
 
-        <div class="row">
-            <div class="input-group">
-                <input type="text" name="address" placeholder="Address" value="{{ $client->address }}">
-            </div>
-        </div>
+        <label for="address">Address</label>
+        <input name="address" type="text" autocomplete="off" placeholder="Adress of their company" value="{{ $client->address }}">
+
         <div>
-            <button type="submit">Update</button>
+            <button type="submit"><span>Update</span></button>
         </div>
-      </form>
+    </form>
+
+</div>
 
 @endsection

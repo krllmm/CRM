@@ -59,7 +59,13 @@ class WorkerController extends Controller
      */
     public function update(Request $request, Worker $worker)
     {
-        //
+        $data = request()->validate([
+            'name' => 'string',
+            'email' => 'string',
+        ]);
+
+        $worker->update($data);
+        return redirect()->route('worker.index');
     }
 
     /**

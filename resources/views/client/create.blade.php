@@ -1,31 +1,32 @@
+<link rel="stylesheet" href="{{ asset('css/client/style.css') }}">
 @extends('layouts.main')
+
+@section('title')
+    Clients - create
+@endsection
+
 @section('content')
 
-  Add client to database
+<h1 class="header">Create client</h1>
 
-  <form action="{{ route('client.store') }}" method="POST">
-    @csrf
-    <div class="row">
-        <div class="input-group">
-            <input type="text" name="name" placeholder="Name">
+<div class="form_container">
+
+    <form action="{{ route('client.store') }}" method="POST">
+        @csrf
+        <label for="name">Client`s name</label>
+        <input name="name" type="text" autocomplete="off" placeholder="Enter client`s name">
+
+        <label for="company">Company</label>
+        <input name="company" type="text" autocomplete="off" placeholder="Company they are working in">
+
+        <label for="address">Address</label>
+        <input name="address" type="text" autocomplete="off" placeholder="Adress of their company">
+
+        <div>
+            <button type="submit"><span>Create</span></button>
         </div>
-    </div>
+    </form>
 
-    <div class="row">
-        <div class="input-group">
-            <input type="text" name="company" placeholder="Company">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="input-group">
-            <input type="text" name="address" placeholder="Address">
-        </div>
-    </div>
-    <div>
-        <button type="submit">Create</button>
-    </div>
-  </form>
-
+</div>
 
 @endsection

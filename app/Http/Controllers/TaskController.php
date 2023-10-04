@@ -73,7 +73,7 @@ class TaskController extends Controller
         ]);
 
         $task->update($data);
-        return redirect()->route('task.show', $task->id);
+        return redirect()->route('task.index');
     }
 
     /**
