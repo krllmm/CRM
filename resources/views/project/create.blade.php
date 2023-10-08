@@ -30,15 +30,15 @@
             <option>Delayed</option>
         </select>
 
-        <label for="worker">Worker</label>
-        <select type="text" name="worker" placeholder="Choose a worker">
+        <label for="worker_id">Worker</label>
+        <select type="text" name="worker_id" placeholder="Choose a worker">
             @foreach ($workers as $worker)
                 <option value="{{ $worker->id }}">{{ $worker->name }}</option>
             @endforeach
         </select>
 
-        <label for="client">Client</label>
-        <select type="text" name="client" placeholder="Choose a client">
+        <label for="client_id">Client</label>
+        <select type="text" name="client_id" placeholder="Choose a client">
             @foreach ($clients as $client)
                 <option value="{{ $client->id }}">{{ $client->name }}</option>
             @endforeach

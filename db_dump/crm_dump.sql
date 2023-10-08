@@ -31,7 +31,7 @@ CREATE TABLE `clients` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `clients` (
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (1,'Robin Robinson','testcompany_edit','Avenue 44',NULL,'2023-09-17 16:44:47','2023-09-17 16:44:47'),(2,'George','Apple','Main St 123','2023-09-17 16:28:35','2023-09-17 16:28:35',NULL),(3,'Bob','unemployed','no home','2023-09-18 15:59:27','2023-09-18 15:59:27',NULL),(4,'Nolan','Google','---','2023-10-01 08:22:12','2023-10-01 08:22:12',NULL);
+INSERT INTO `clients` VALUES (1,'Anthony','Phoenix Technologies','123 Velocity Ln, Denver, CO 80202','2023-10-02 18:25:51','2023-10-08 14:17:43',NULL),(2,'Franklin','BrightWave Solutions','123 Main St, Suite 100, Atlanta, GA 30303','2023-10-08 14:17:07','2023-10-08 14:17:07',NULL),(3,'Ellen','Blue Horizon Enterprises','621 Elite Ave, New York, NY 10001','2023-10-08 14:18:19','2023-10-08 14:18:19',NULL);
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_reset_tokens_table',1),(3,'2014_10_12_100000_create_password_resets_table',1),(4,'2019_08_19_000000_create_failed_jobs_table',1),(5,'2019_12_14_000001_create_personal_access_tokens_table',1),(6,'2023_09_15_112440_create_clients_table',1),(7,'2023_09_16_110429_create_projects_table',1),(8,'2023_09_16_112811_create_tasks_table',1),(9,'2023_09_24_150827_remove_user_emailverified_password_token',2);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_workers_table',1),(2,'2014_10_12_100000_create_password_reset_tokens_table',1),(3,'2014_10_12_100000_create_password_resets_table',1),(4,'2019_08_19_000000_create_failed_jobs_table',1),(5,'2019_12_14_000001_create_personal_access_tokens_table',1),(6,'2023_09_15_112440_create_clients_table',1),(7,'2023_09_16_110429_create_projects_table',1),(8,'2023_09_16_112811_create_tasks_table',1),(9,'2014_10_12_000000_create_users_table',2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,17 +192,17 @@ CREATE TABLE `projects` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `deadline` date NOT NULL DEFAULT '2030-01-01',
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'to-do',
-  `user_id` int unsigned NOT NULL,
+  `worker_id` int unsigned NOT NULL,
   `client_id` int unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `projects_user_id_foreign` (`user_id`),
+  KEY `projects_worker_id_foreign` (`worker_id`),
   KEY `projects_client_id_foreign` (`client_id`),
   CONSTRAINT `projects_client_id_foreign` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`),
-  CONSTRAINT `projects_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `projects_worker_id_foreign` FOREIGN KEY (`worker_id`) REFERENCES `workers` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +211,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (2,'b','p1+desc','2040-02-01','To-do',1,2,NULL,'2023-09-24 11:18:49',NULL),(3,'project2','p2_desc','2024-04-20','Done',1,2,'2023-09-18 16:10:35','2023-09-18 16:22:58',NULL),(4,'iop[','[oipiop','2023-09-19','Delayed',1,2,'2023-09-18 16:12:31','2023-09-18 16:13:04','2023-09-18 16:13:04'),(5,'Edited','Its because you are trying to print a single big string. If there is a space, the words will be broken according to the width automatically. Use the below CSS to fix it.','2023-09-16','To-do',1,2,'2023-09-18 16:14:16','2023-09-24 11:25:29',NULL),(6,'project in progress','desc','2023-12-01','In progress',1,2,'2023-09-30 09:48:51','2023-09-30 09:48:51',NULL);
+INSERT INTO `projects` VALUES (1,'Hot dog club CRM','To manage their customer relationships effectively, they have decided to implement a CRM system. The system will help them keep track of customer orders, preferences, and feedback, which will enable them to provide personalized service to their customers.','2024-01-12','In progress',2,1,'2023-10-02 18:32:03','2023-10-08 14:20:42',NULL),(4,'Create a Customer Feedback Web Page','Create a web page that allows customers to provide feedback on their dining experience at the *company name*. The feedback form should include fields for customer name, email address, date of visit, and comments on the service, and overall experience.','2024-03-15','To-do',3,3,'2023-10-08 14:30:43','2023-10-08 14:37:57',NULL),(5,'New resources','Collect ifnormation about UI/UX courses in the internet','2023-10-01','Delayed',5,2,'2023-10-08 14:35:35','2023-10-08 14:40:55',NULL);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,7 +231,7 @@ CREATE TABLE `tasks` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +240,7 @@ CREATE TABLE `tasks` (
 
 LOCK TABLES `tasks` WRITE;
 /*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
-INSERT INTO `tasks` VALUES (1,'qweqwe_edit','zxcxzczxc_edit','Delayed','2023-09-18 09:13:50','2023-09-18 09:28:24','2023-09-18 09:28:24'),(2,'task1_edited to have long title','task2_desc','In progress','2023-09-18 15:48:11','2023-09-24 11:55:05',NULL);
+INSERT INTO `tasks` VALUES (1,'Finish the ecommerce web page','Change the color palette and improve UX','Done','2023-10-02 18:25:04','2023-10-08 14:11:15',NULL),(2,'Task for ui','Rearrange the main manipulating button to their corresponding areas','Done','2023-10-04 18:43:20','2023-10-08 14:12:11',NULL),(3,'Draw an illustration for upcoming project','Design a user interface for a CRM system that allows for easy management of customer contacts, communication history, and sales data.','In progress','2023-10-08 14:13:41','2023-10-08 14:14:46',NULL),(4,'New ui design for site','The interface should be intuitive and user-friendly, with clear navigation and visual cues to help users quickly find the information they need. The design should also incorporate automation features to streamline processes and improve efficiency.','In progress','2023-10-08 14:14:14','2023-10-08 14:14:56',NULL);
 /*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,9 +252,12 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -268,8 +271,36 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Fill','fill@gmail.com','2023-12-20 21:00:00',NULL),(2,'Collin','collin_oficcial@gmail.com','2023-09-24 12:11:44','2023-09-24 12:11:44');
+INSERT INTO `users` VALUES (1,'admin1','admin1@gmail.com',NULL,'$2y$10$dwsHCEWstrj6gtYCTLaAT.QY4wW8ZPSy8zk6kITJej14r1obT.5aO',NULL,'2023-10-02 18:39:56','2023-10-02 18:39:56'),(2,'admin','admin@fff.com',NULL,'$2y$10$TGTJaVlSDHpHdEtytBZ7i.UDSmZmozp2F1Au52wKNi1lmp0yxgk/S',NULL,'2023-10-02 19:05:14','2023-10-02 19:05:14');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `workers`
+--
+
+DROP TABLE IF EXISTS `workers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `workers` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `workers_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workers`
+--
+
+LOCK TABLES `workers` WRITE;
+/*!40000 ALTER TABLE `workers` DISABLE KEYS */;
+INSERT INTO `workers` VALUES (1,'Fill','thatonefill@gmail.com','2023-10-02 18:24:42','2023-10-08 14:18:56'),(2,'Josh','oj@gmail.com','2023-10-02 18:31:13','2023-10-02 18:31:13'),(3,'Kenshi','kenshi@gmail.com','2023-10-04 19:05:33','2023-10-04 19:05:33'),(4,'Andrei','andrei_worker@gmail.com','2023-10-08 14:09:59','2023-10-08 14:09:59'),(5,'Oleg Freelancer','lancer@gmail.com','2023-10-08 14:10:32','2023-10-08 14:10:32');
+/*!40000 ALTER TABLE `workers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -281,4 +312,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-01 19:23:24
+-- Dump completed on 2023-10-08 21:13:45
