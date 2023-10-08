@@ -28,13 +28,18 @@ input, select {
     padding: 0 8px;
     border: 2px solid rgba(116, 116, 116, 0.6);
     border-radius: 5px;
+    color: #eee7dc;
 }
 
 input:hover,
 input:focus,
 select:hover,
 select:focus {
-  border-color: #6d6b6b;
+    border-color: #a7a6a4;
+}
+
+option{
+    color: #000;
 }
 
 button {
@@ -46,6 +51,8 @@ button {
     text-align: center;
     cursor: pointer;
     border-radius: 5px;
+    color: #eee7dc;
+    background-color: #837741;
 }
 
 button:hover{

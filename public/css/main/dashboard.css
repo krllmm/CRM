@@ -24,8 +24,8 @@ html, body{
 
 .logo{
     width: 15%;
-    background-color: #053B50;
-    color: white;
+    background-color: #082f08;
+    color: #eee7dc;
     min-height: 60px;
     height: 100%;
     font-size: 2rem;
@@ -42,7 +42,7 @@ html, body{
 .navbar{
     display: flex;
     width: 100%;
-    background-color: #64CCC5;
+    background-color: #3F615A;
     min-height: 60px;
     height: 100%;
     align-items: center;
@@ -61,7 +61,7 @@ html, body{
 
 .side_menu{
     width: 15%;
-    background-color: #176B87;
+    background-color: 3F615A;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ html, body{
 
 .admin_name{
     font-size: 1.4rem;
-    color: #eee;
+    color: #eee7dc;
 }
 
 
@@ -84,8 +84,8 @@ html, body{
     font-size: 1.4rem;
     align-items: center;
     background: transparent;
-    color: #EEE;
-    border: 2px solid #EEEEEE;
+    color: #eee7dc;
+    border: 2px solid #eee7dc;
     border-radius: 5px;
     padding: 0 10px;
     text-decoration: none;
@@ -97,7 +97,7 @@ html, body{
 
 .logout{
     margin-top: auto;
-    background-color: #053B50;
+    background-color: #082f08;
 }
 
 .logout{
@@ -109,9 +109,10 @@ html, body{
     text-align: center;
     text-decoration: none;
     line-height: 70px;
-    color: white;
+    color: #eee7dc;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #114238;
 }
 
 
@@ -121,16 +122,12 @@ a.side-menu-link {
     height: 100%;
     width: 100%;
     text-decoration: none;
-    color: white;
+    color: #eee7dc;
     text-align: start;
 }
 
-
-
-
-
 .side_menu_item:hover{
-    background-color: #053B50;
+    background-color: #114238;
     transition: .5s all;
 }
 
@@ -151,6 +148,7 @@ a.side-menu-link {
     min-width: 85%;
     width: 100%;
     max-height: 100%;
-    background-color: #EEEEEE;
+    background-color: #101313;
+    color: #eee7dc;
     overflow-y: auto;
 }

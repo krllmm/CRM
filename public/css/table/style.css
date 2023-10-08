@@ -17,7 +17,7 @@
   border-style: none;
   box-shadow: rgba(0, 0, 0, .2) 0 3px 1px -2px,rgba(0, 0, 0, .14) 0 2px 2px 0,rgba(0, 0, 0, .12) 0 1px 5px 0;
   box-sizing: border-box;
-  color: #fff;
+  color: #eee7dc;
   cursor: pointer;
   display: inline-flex;
   font-family: Roboto,sans-serif;
@@ -56,16 +56,11 @@
 }
 
 .button-61:not(:disabled) {
-  background-color: #6200ee;
+  background-color: #837741;
 }
 
 .button-61:focus {
   box-shadow: rgba(0, 0, 0, .2) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
-}
-
-.button-61:active {
-  box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
-  background: #A46BF5;
 }
 
 table{
@@ -76,11 +71,12 @@ table{
     font-family: sans-serif;
     min-width: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: #eee7dc;
 }
 
 table thead tr {
-    background-color: #009879;
-    color: #ffffff;
+    background-color: #3dae98;
+    color: #eee7dc;
     text-align: left;
 }
 
@@ -90,15 +86,19 @@ table td {
 }
 
 table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #3dae98;
+}
+
+table tbody tr:nth-of-type(odd) {
+    background-color: #2D8074;
 }
 
 table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #255750;
 }
 
 table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #3dae98;
 }
 
 .table_container{
