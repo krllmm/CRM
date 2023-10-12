@@ -52,6 +52,17 @@ html, body{
     margin: 0 24px;
 }
 
+.clock{
+    color: white;
+    margin-left: auto;
+    margin-right: 60px;
+    font-size: 1.6rem;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
 
 
 .row_bottom{
