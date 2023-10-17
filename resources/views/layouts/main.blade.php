@@ -8,7 +8,7 @@
     <link rel="shortcut icon" sizes="114x114" href="{{ asset('images/tabs.png') }}">
     <link href="{{ asset('css/main/dashboard.css') }}" rel="stylesheet">
 
-    <script src="{{ asset('js/clock.js') }}"></script>
+    <script defer src="{{ asset('js/clock.js') }}"></script>
     <title>CRM - @yield('title')</title>
 </head>
 <body>

@@ -1,11 +1,15 @@
+document.getElementById('clock').classList.add('hidden');
+
 setInterval(updateTime, 1000);
-
-show = localStorage.getItem('timer');
-if(!show){
-    document.getElementById('clock').classList.add('hidden');
-}
-
 function updateTime() {
+
+    show = localStorage.getItem('timer');
+    if(show == "true"){
+        document.getElementById('clock').classList.remove('hidden');
+    }else{
+        document.getElementById('clock').classList.add('hidden');
+    }
+
     var currentTime = new Date();
     var hours = currentTime.getHours();
     var minutes = currentTime.getMinutes();
@@ -19,14 +23,6 @@ function updateTime() {
     }
     if (seconds < 10) {
         seconds = "0" + seconds;
-    }
-
-    show = localStorage.getItem('timer');
-
-    if(!show){
-        document.getElementById('clock').classList.add('hidden');
-    }else{
-        document.getElementById('clock').classList.remove('hidden');
     }
 
     document.getElementById('clock').innerHTML = hours + ":" + minutes + ":" + seconds;

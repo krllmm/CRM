@@ -2,7 +2,7 @@ const state = localStorage.getItem('timer');
 var checkBox = document.getElementById("toggle_time");
 
 checkBox.checked = false;
-if(state){
+if(state == "true"){
     checkBox.checked = true;
 }
 
