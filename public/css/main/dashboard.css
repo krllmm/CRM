@@ -162,4 +162,5 @@ a.side-menu-link {
     background-color: #101313;
     color: #eee7dc;
     overflow-y: auto;
+    scrollbar-gutter: stable;
 }
