@@ -6,10 +6,10 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    background-color: #000;
 }
 .main{
-	width: 350px;
+	width: 40%;
 	height: 500px;
 	background: #333;
 	overflow: hidden;
@@ -48,7 +48,7 @@ button{
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: #573b8a;
+	background: #3dae98;
 	font-size: 1em;
 	font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -59,7 +59,7 @@ button{
 }
 
 button:hover{
-	background: #6d44b8;
+	background: #2f8372;
 }
 
 
