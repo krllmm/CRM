@@ -16,22 +16,6 @@ Instruments of Laravel 10
     <li>blade templates, sections</li>
 </ul>
 
-## How to Install and Run the Project
-In VS Code after your clone the repo
-```
-npm install
-```
-And then
-```
-npm run build
-```
-This should create all of the necessary dependencies.
-To launch the project execute
-
-```
-php artisan serve
-```
-
 ## To Do
 <ul>
     <li>better color scheme</li>
